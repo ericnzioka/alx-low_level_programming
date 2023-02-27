@@ -1,14 +1,21 @@
 #include "main.h"
 
 /**
- * int _strlen(char *s);
- *
- *
+ *_strlen- counts string exccept \0
+ *@s: checked
+ *Return: i
  */
-
-int _strlen(char *s);
+int _strlen(char *s)
 {
-	int n;
-	n = strlen(s);
-	return (n);
+	int i;
+
+	for (i = 0; s[i] != '\0'; ++i)
+	{
+		;
+	}
+	return (i);
+
 }
+
+
+

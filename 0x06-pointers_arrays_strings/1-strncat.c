@@ -1,16 +1,19 @@
 #include "main.h"
-
 /**
- * _strncat: concatenates two strings a character at a time
- * @i: tracks the length of the string pointed to by src
- * @j: tracks the length of the string pointed to by dest
- * Return: the pointer dest
+ *_strncat- append string
+ *@dest: checked
+ *@src: checked
+ *@n: checked
+ *Return: dest
  */
 
 char *_strncat(char *dest, char *src, int n)
 {
-	int i = 0;
-	int j = 0;
+	int i, j;
+
+	i = 0;
+
+	j = 0;
 
 	while (*(dest + i) != '\0')
 	{
@@ -20,12 +23,14 @@ char *_strncat(char *dest, char *src, int n)
 
 	i = 0;
 
-	while (*(src + i)  != '\0' && i < n )
-        {
+	while (*(src + i) != *(src + n))
+	{
 		dest[j] = src[i];
 		i++;
-                j++;
-        }
+		j++;
+	}
 	dest[j] = '\0';
+
 	return (dest);
 }
+

@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
  *_strcmp- copies the string pointed to by src,
  *
@@ -19,5 +18,4 @@ int _strcmp(char *s1, char  *s2)
 		i++;
 	output = (*(s1 + i) - *(s2 + i));
 	return (output);
-}
- 
+} 

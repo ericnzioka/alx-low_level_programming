@@ -2,29 +2,36 @@
 #include <stdarg.h>
 #include <stdio.h>
 /**
- *print_strings- print strings
- *@separator: string b/n numbers
- *@n: numbers
+ *print_strings- print number
+ *@separator: string b/n strings
+ *@n: number of strings
  */
 void print_strings(const char *separator, const unsigned int n, ...)
 {
-	va_list string_list;
-	unsigned int i;
-	char *sting;
+	va_list ap;
 
-	va_start(string_list, n);
+	unsigned int i;
+
+	char *str;
+
+	va_start(ap, n);
+
+
 	for (i = 0; i < n; i++)
 	{
-		string = va_arg(string_list, char *);
-		if (string != NULL)
-			printf("%s", string);
+		str = va_arg(ap, char *);
+		if (str != NULL)
+			printf("%s", str);
 		else
 			printf("(nil)");
-		if (i < n - 1 && separator)
+		if (i != (n - 1) && separator != NULL)
+		{
+
 			printf("%s", separator);
+		}
+
 	}
+	va_end(ap);
 	printf("\n");
-		       va_end(string_list);
 
 }
-

@@ -3,28 +3,27 @@
 /**
  *binary_to_uint - convert a binary number to unsigned int
  *@b:a pointer to a string of 0 & 1 chars
- *@weight:conversion coefficient
- *@sum: converted int
+ *result: converted int
  *Return: converted number or if b is NULL or contains chars not 0 or 1 - 0.
  */
-unsigned int binary_to_uint(const char *b)
-{
-	unsigned int sum = 0, weight = 1;
-	int len;
+unsigned int binary_to_uint(const char *b) {
+    unsigned int result = 0;
 
-	if (b == NULL)
-		return (0);
+    if (b == NULL) {
+        return 0;
+    }
 
-	for (len = 0; b[len]; len++);
+    int len = strlen(b);
+    for (int i = 0; i < len; i++) {
+        if (b[i] == '0') {
+            result = (result << 1) | 0;
+        } else if (b[i] == '1') {
+            result = (result << 1) | 1;
+        } else {
+            // Invalid character in input string
+            return 0;
+        }
+    }
 
-	for (len -= 1; len >= 0; len--)
-	{
-		if (b[len] != '0' && b[len] != '1')
-			return (0);
-
-		sum += (b[len] - '0') * weight;
-		weight *= 2;
-	}
-
-	return (sum);
+    return result;
 }

@@ -10,6 +10,7 @@
 #include <stdio.h>
 #include <string.h>
 
+void start_io(int stat, int fd, char *filename, char mode);
 ssize_t read_textfile(const char *filename, size_t letters);
 int _strlen(char *s);
 int create_file(const char *filename, char *text_content);
